@@ -33,6 +33,32 @@ public class MovieService {
         System.out.println("Movie added successfully: " + newMovie.getTitle());
     }
 
+    // Method to search for movies by title, director, or genre
+    public void searchMovie(String keyword) {
+        boolean found = false;
+        System.out.println("\n===== Search Results for '" + keyword + "' =====");
+        for (int i = 0; i < count; i++) {
+            if (movies[i].getTitle().equalsIgnoreCase(keyword) ||
+                    movies[i].getDirector().equalsIgnoreCase(keyword) ||
+                    movies[i].getGenre().equalsIgnoreCase(keyword)) {
+
+                System.out.println("Movie Number     : " + movies[i].getId());
+                System.out.println("Movie Title/Name : " + movies[i].getTitle());
+                System.out.println("Genre            : " + movies[i].getGenre());
+                System.out.println("Director Name    : " + movies[i].getDirector());
+                System.out.println("Movie Cast       : " + movies[i].getCast());
+                System.out.println("Release Date     : " + movies[i].getReleaseDate());
+                System.out.println("Ratings          : " + movies[i].getRatings());
+                System.out.println("Movie Reviews    : " + movies[i].getReviews());
+                System.out.println("============================================");
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("No movies found with keyword: " + keyword);
+        }
+    }
+
     // Method to display movies
     public void displayMovieInfo() {
         System.out.println("\n===== Movie List =====");

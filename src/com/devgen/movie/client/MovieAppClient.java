@@ -23,7 +23,8 @@ public class MovieAppClient {
             System.out.println("\nMovie Management System");
             System.out.println("1. Add Movie");
             System.out.println("2. Display Movies");
-            System.out.println("3. Exit");
+            System.out.println("3. Search Movie");
+            System.out.println("4. Exit");
             System.out.print("Enter your choice: ");
 
             int choice = scanner.nextInt();
@@ -65,8 +66,13 @@ public class MovieAppClient {
                     // Display all movies
                     movieService.displayMovieInfo();
                     break;
-
                 case 3:
+                    // Search for movies
+                    System.out.print("Enter Movie Title, Director, or Genre to search: ");
+                    String keyword = scanner.nextLine();
+                    movieService.searchMovie(keyword);
+                    break;
+                case 4:
                     System.out.println("Exiting...");
                     scanner.close();
                     return;
