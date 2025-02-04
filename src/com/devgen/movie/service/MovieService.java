@@ -2,15 +2,12 @@ package com.devgen.movie.service;
 
 import com.devgen.movie.model.Movie;
 import java.util.Arrays;
-
-
-import java.security.PrivateKey;
+//import java.security.PrivateKey;
 
 public class MovieService {
     // maintaining movies = ( curd ) - create, read, update, delete
-
     // calling movie object
-//    private Movie[] movie = new Movie[5];
+    // private Movie[] movie = new Movie[5];
     private Movie[] movies = new Movie[5];
     private int count = 0;  // Tracks number of movies added
 

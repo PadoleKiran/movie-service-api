@@ -11,15 +11,11 @@ public class MovieAppClient {
 
         // printing movie information
         // movieService.displayMovieInfo();
-
-//        Scanner scanner = new Scanner(System.in);
-
-
+        // Scanner scanner = new Scanner(System.in);
         // Adding a new movie dynamically
-//        movieService.addMovie(new Movie(6, "New Movie", "Action", "10-10-2023", "Chris Nolan", "Leonardo DiCaprio", "Excellent", 5.0));
-
+        // movieService.addMovie(new Movie(6, "New Movie", "Action", "10-10-2023", "Chris Nolan", "Leonardo DiCaprio", "Excellent", 5.0));
         // Display updated movie list
-//        movieService.displayMovieInfo();
+        // movieService.displayMovieInfo();
 
         Scanner scanner = new Scanner(System.in);
 
