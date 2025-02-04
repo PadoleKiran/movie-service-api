@@ -2,6 +2,7 @@ package com.devgen.movie.service;
 
 import com.devgen.movie.model.Movie;
 import java.util.Arrays;
+import java.util.Scanner;
 //import java.security.PrivateKey;
 
 public class MovieService {
@@ -10,6 +11,7 @@ public class MovieService {
     // private Movie[] movie = new Movie[5];
     private Movie[] movies = new Movie[5];
     private int count = 0;  // Tracks number of movies added
+    private Scanner scanner = new Scanner(System.in);
 
     public MovieService() {
         // Adding initial movies
@@ -56,6 +58,75 @@ public class MovieService {
         }
         if (!found) {
             System.out.println("No movies found with keyword: " + keyword);
+        }
+    }
+
+    // Method to delete a movie by ID
+    public void deleteMovie(int id) {
+        boolean found = false;
+        for (int i = 0; i < count; i++) {
+            if (movies[i].getId() == id) {
+                found = true;
+                // Shift elements to remove the movie
+                for (int j = i; j < count - 1; j++) {
+                    movies[j] = movies[j + 1];
+                }
+                count--;  // Reduce the count after deletion
+                movies = Arrays.copyOf(movies, count); // Resize the array
+                System.out.println("Movie with ID " + id + " deleted successfully.");
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("No movie found with ID: " + id);
+        }
+    }
+
+    // Method to update a movie by ID
+    public void updateMovie(int id) {
+        boolean found = false;
+        for (int i = 0; i < count; i++) {
+            if (movies[i].getId() == id) {
+                found = true;
+                System.out.println("Updating details for movie: " + movies[i].getTitle());
+
+                System.out.print("Enter new title (Press enter to keep old): ");
+                String newTitle = scanner.nextLine();
+                if (!newTitle.isEmpty()) movies[i].setTitle(newTitle);
+
+                System.out.print("Enter new genre (Press enter to keep old): ");
+                String newGenre = scanner.nextLine();
+                if (!newGenre.isEmpty()) movies[i].setGenre(newGenre);
+
+                System.out.print("Enter new release date (Press enter to keep old): ");
+                String newReleaseDate = scanner.nextLine();
+                if (!newReleaseDate.isEmpty()) movies[i].setReleaseDate(newReleaseDate);
+
+                System.out.print("Enter new director name (Press enter to keep old): ");
+                String newDirector = scanner.nextLine();
+                if (!newDirector.isEmpty()) movies[i].setDirector(newDirector);
+
+                System.out.print("Enter new movie cast (Press enter to keep old): ");
+                String newCast = scanner.nextLine();
+                if (!newCast.isEmpty()) movies[i].setCast(newCast);
+
+                System.out.print("Enter new review (Press enter to keep old): ");
+                String newReview = scanner.nextLine();
+                if (!newReview.isEmpty()) movies[i].setReviews(newReview);
+
+                System.out.print("Enter new rating (Press enter to keep old): ");
+                String newRatingStr = scanner.nextLine();
+                if (!newRatingStr.isEmpty()) {
+                    double newRating = Double.parseDouble(newRatingStr);
+                    movies[i].setRatings(newRating);
+                }
+
+                System.out.println("Movie updated successfully!");
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("No movie found with ID: " + id);
         }
     }
 

@@ -24,7 +24,9 @@ public class MovieAppClient {
             System.out.println("1. Add Movie");
             System.out.println("2. Display Movies");
             System.out.println("3. Search Movie");
-            System.out.println("4. Exit");
+            System.out.println("4. Delete Movie");
+            System.out.println("5. Update Movie");
+            System.out.println("6. Exit");
             System.out.print("Enter your choice: ");
 
             int choice = scanner.nextInt();
@@ -73,6 +75,18 @@ public class MovieAppClient {
                     movieService.searchMovie(keyword);
                     break;
                 case 4:
+                    // Delete a movie
+                    System.out.print("Enter Movie ID to delete: ");
+                    int deleteId = scanner.nextInt();
+                    movieService.deleteMovie(deleteId);
+                    break;
+                case 5:
+                    System.out.print("Enter Movie ID to update: ");
+                    int updateId = scanner.nextInt();
+                    scanner.nextLine();
+                    movieService.updateMovie(updateId);
+                    break;
+                case 6:
                     System.out.println("Exiting...");
                     scanner.close();
                     return;
