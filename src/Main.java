@@ -1,5 +1,9 @@
+import com.devgen.movie.service.MovieService;
+
 public class Main {
+
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
+        MovieService movieService = new MovieService();
+
     }
 }
